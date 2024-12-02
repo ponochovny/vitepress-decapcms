@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import fs from 'fs'
 import path from 'path'
+import matter from 'gray-matter'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -73,7 +74,10 @@ function getconsequencesLinks() {
 	return files
 		.filter((file) => file.endsWith('.md') && !file.includes('index'))
 		.map((file) => {
-			const name = file.replace(/-/g, ' ').replace('.md', '')
+			const filePath = path.join(consequencesDir, file)
+			const content = fs.readFileSync(filePath, 'utf-8')
+			const { data } = matter(content)
+			const name = data.title || file.replace('.md', '')
 			const link = `/consequences/${file.replace('.md', '')}`
 			return { text: name, link }
 		})
