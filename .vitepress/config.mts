@@ -23,10 +23,14 @@ export default defineConfig({
 		],
 
 		sidebar: {
-			'/consequences/': [
+			'/consequences': [
 				// { text: 'Хронология', link: '/consequences/' },
 				...getconsequencesLinks(),
 			],
+			// '/consequences/': [
+			// 	// { text: 'Хронология', link: '/consequences/' },
+			// 	...getconsequencesLinks(),
+			// ],
 		},
 
 		socialLinks: [
