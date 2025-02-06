@@ -102,7 +102,7 @@ function generateSidebar() {
 		collapsible: true, // можно сворачивать
 		items: section.items.map((item) => ({
 			text: getArticleTitle(item.article),
-			link: `/consequences/${item.article}`,
+			link: `/content/consequences/${item.article}`,
 		})),
 	}))
 }
