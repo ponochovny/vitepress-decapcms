@@ -1,30 +1,56 @@
+# for local usage
+local_backend: true
+
 backend:
   name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
+  branch: main
 
-media_folder: public/img
-public_folder: /img
+media_folder: public/uploads
+public_folder: /uploads
 
 collections:
   - name: 'consequences'
     label: 'Consequences'
-    folder: 'consequences'
+    folder: 'content/consequences'
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
     create: true
-    slug: '{{slug}}'
+    # slug: '{{slug}}'
     editor:
-      preview: false
+      preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      # - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Body', name: 'body', widget: 'markdown', hint: 'Main content goes here.' }
   - name: 'thesises'
     label: 'Thesises'
-    folder: 'thesises'
+    folder: 'content/thesises'
     create: true
     slug: '{{slug}}'
     editor:
-      preview: false
+      preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      # - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: "sidebar"
+    label: "Сайдбар"
+    file: "docs/sidebar.json"
+    format: "json"
+    fields:
+      - label: "Разделы"
+        name: "sections"
+        widget: "list"
+        fields:
+          - { label: "Название группы", name: "text", widget: "string" }
+          - label: "Статьи"
+            name: "items"
+            widget: "list"
+            fields:
+              - label: "Выбрать статью"
+                name: "article"
+                widget: "relation"
+                collection: "consequences"
+                search_fields: ["title"]
+                value_field: "{{slug}}"
+                display_fields: ["title"]

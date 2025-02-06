@@ -68,7 +68,7 @@ export default defineConfig({
 })
 
 function getconsequencesLinks() {
-	const consequencesDir = path.resolve(__dirname, '../consequences')
+	const consequencesDir = path.resolve(__dirname, '../content/consequences')
 	const files = fs.readdirSync(consequencesDir)
 
 	return files
