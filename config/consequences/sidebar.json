@@ -1,8 +1,26 @@
 {
-	"sidebar": [
-		{
-			"text": "",
-			"items": [{"article": ""}]
-		}
-	]
+  "sidebar": [
+    {
+      "text": "2014",
+      "items": [
+        {
+          "article": "майдан/index"
+        },
+        {
+          "article": "guide-2-title/index"
+        }
+      ]
+    },
+    {
+      "text": "2015",
+      "items": [
+        {
+          "article": "guide-1/index"
+        },
+        {
+          "article": "something-new/index"
+        }
+      ]
+    }
+  ]
 }
