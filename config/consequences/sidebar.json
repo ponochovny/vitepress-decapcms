@@ -1,3 +1,8 @@
 {
-	"sidebar": []
+	"sidebar": [
+		{
+			"text": "",
+			"items": [{"article": ""}]
+		}
+	]
 }

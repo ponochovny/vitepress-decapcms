@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
-// import fs from 'fs'
-// import path from 'path'
-// import matter from 'gray-matter'
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
 import consequences_sidebar from '../config/consequences/sidebar.json'
 
 // https://vitepress.dev/reference/site-config
@@ -28,7 +28,8 @@ export default defineConfig({
 			'/consequences': [
 				// { text: 'Хронология', link: '/consequences/' },
 				// ...getconsequencesLinks(),
-				...consequences_sidebar.sidebar,
+				// ...consequences_sidebar.sidebar,
+				...generateSidebar(),
 			],
 			// '/consequences/': [
 			// 	// { text: 'Хронология', link: '/consequences/' },
@@ -70,6 +71,16 @@ export default defineConfig({
 })
 
 // function getconsequencesLinks() {
+
+// 	// return consequences_sidebar.sidebar.map((section) => ({
+// 	// 	text: section.text,
+// 	// 	collapsible: true,
+// 	// 	items: section.items.map((item) => ({
+// 	// 		text: item.text,
+// 	// 		link: `/consequences/${item.article}`,
+// 	// 	}))
+// 	// }))
+
 // 	const consequencesDir = path.resolve(__dirname, '../content/consequences')
 // 	const files = fs.readdirSync(consequencesDir)
 
@@ -84,3 +95,26 @@ export default defineConfig({
 // 			return { text: name, link }
 // 		})
 // }
+
+function generateSidebar() {
+	return consequences_sidebar.sidebar.map((section) => ({
+		text: section.text,
+		collapsible: true, // можно сворачивать
+		items: section.items.map((item) => ({
+			text: getArticleTitle(item.article),
+			link: `/consequences/${item.article}`,
+		})),
+	}))
+}
+
+function getArticleTitle(articlePath) {
+	const mdFilePath = path.resolve(process.cwd(), 'docs', `${articlePath}.md`)
+
+	if (fs.existsSync(mdFilePath)) {
+		const fileContent = fs.readFileSync(mdFilePath, 'utf-8')
+		const { data } = matter(fileContent)
+		return data.title || articlePath.split('/').pop()
+	}
+
+	return articlePath.split('/').pop() // Фолбэк на имя файла, если `title` нет
+}
