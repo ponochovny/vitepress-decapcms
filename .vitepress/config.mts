@@ -108,7 +108,11 @@ function generateSidebar() {
 }
 
 function getArticleTitle(articlePath) {
-	const mdFilePath = path.resolve(process.cwd(), 'docs', `${articlePath}.md`)
+	const mdFilePath = path.resolve(
+		process.cwd(),
+		'content/consequences',
+		`${articlePath}.md`
+	)
 
 	if (fs.existsSync(mdFilePath)) {
 		const fileContent = fs.readFileSync(mdFilePath, 'utf-8')
