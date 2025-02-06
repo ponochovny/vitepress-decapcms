@@ -41,7 +41,7 @@ collections:
     files:
       - name: "sidebar"
         label: "Сайдбар"
-        file: "docs/sidebar.json"
+        file: "config/sidebar.json"
         format: "json"
         description: "Настройки боковой панели"
         fields:
@@ -57,7 +57,7 @@ collections:
                   - label: "Выбрать статью"
                     name: "article"
                     widget: "relation"
-                    collection: "articles"
+                    collection: "consequences"
                     search_fields: ["title"]
                     value_field: "{{slug}}"
                     display_fields: ["title"]
