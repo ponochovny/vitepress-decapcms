@@ -1,0 +1,26 @@
+{
+  "sections": [
+    {
+      "items": [
+        {
+          "article": "майдан/index"
+        },
+        {
+          "article": "guide-1/index"
+        }
+      ],
+      "text": "2014"
+    },
+    {
+      "text": "2015",
+      "items": [
+        {
+          "article": "guide-2-title/index"
+        },
+        {
+          "article": "something-new/index"
+        }
+      ]
+    }
+  ]
+}
