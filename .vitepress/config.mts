@@ -14,18 +14,18 @@ export default defineConfig({
 			{ text: 'Главная', link: '/' },
 			{
 				text: 'Хронология',
-				link: '/consequences',
-				activeMatch: '/consequences',
+				link: '/content/consequences',
+				activeMatch: '/content/consequences',
 			},
 			{
 				text: 'Тезисы',
-				link: '/thesises',
-				activeMatch: '/thesises',
+				link: '/content/thesises',
+				activeMatch: '/content/thesises',
 			},
 		],
 
 		sidebar: {
-			'/consequences': [
+			'/content/consequences': [
 				// { text: 'Хронология', link: '/consequences/' },
 				// ...getconsequencesLinks(),
 				// ...consequences_sidebar.sidebar,

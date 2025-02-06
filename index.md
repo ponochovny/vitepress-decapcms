@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: Начать изучаение Хронологии
-      link: /consequences
+      link: /content/consequences
     - theme: alt
       text: Тезисы пропаганды
-      link: /thesises
+      link: /content/thesises
 
 # features:
 #   - title: Feature A
