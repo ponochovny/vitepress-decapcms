@@ -39,14 +39,14 @@ collections:
     editor:
       preview: false
     files:
-      - name: "sidebar"
-        label: "Сайдбар"
-        file: "config/sidebar.json"
+      - name: "consequences_sidebar"
+        label: "Разделы хронологии"
+        file: "config/consequences/sidebar.json"
         format: "json"
-        description: "Настройки боковой панели"
+        description: "Настройки боковой панели хронологий"
         fields:
-          - label: "Разделы"
-            name: "sections"
+          - label: "Разделы хронологии"
+            name: "sidebar"
             widget: "list"
             fields:
               - { label: "Название группы", name: "text", widget: "string" }

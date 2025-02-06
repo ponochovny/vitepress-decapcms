@@ -1,7 +1,8 @@
 import { defineConfig } from 'vitepress'
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
+// import fs from 'fs'
+// import path from 'path'
+// import matter from 'gray-matter'
+import consequences_sidebar from '../config/consequences/sidebar.json'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -26,7 +27,8 @@ export default defineConfig({
 		sidebar: {
 			'/consequences': [
 				// { text: 'Хронология', link: '/consequences/' },
-				...getconsequencesLinks(),
+				// ...getconsequencesLinks(),
+				...consequences_sidebar.sidebar,
 			],
 			// '/consequences/': [
 			// 	// { text: 'Хронология', link: '/consequences/' },
@@ -67,18 +69,18 @@ export default defineConfig({
 	},
 })
 
-function getconsequencesLinks() {
-	const consequencesDir = path.resolve(__dirname, '../content/consequences')
-	const files = fs.readdirSync(consequencesDir)
+// function getconsequencesLinks() {
+// 	const consequencesDir = path.resolve(__dirname, '../content/consequences')
+// 	const files = fs.readdirSync(consequencesDir)
 
-	return files
-		.filter((file) => file.endsWith('.md') && !file.includes('index'))
-		.map((file) => {
-			const filePath = path.join(consequencesDir, file)
-			const content = fs.readFileSync(filePath, 'utf-8')
-			const { data } = matter(content)
-			const name = data.title || file.replace('.md', '')
-			const link = `/consequences/${file.replace('.md', '')}`
-			return { text: name, link }
-		})
-}
+// 	return files
+// 		.filter((file) => file.endsWith('.md') && !file.includes('index'))
+// 		.map((file) => {
+// 			const filePath = path.join(consequencesDir, file)
+// 			const content = fs.readFileSync(filePath, 'utf-8')
+// 			const { data } = matter(content)
+// 			const name = data.title || file.replace('.md', '')
+// 			const link = `/consequences/${file.replace('.md', '')}`
+// 			return { text: name, link }
+// 		})
+// }
