@@ -29,7 +29,7 @@ export default defineConfig({
 				// { text: 'Хронология', link: '/consequences/' },
 				// ...getconsequencesLinks(),
 				// ...consequences_sidebar.sidebar,
-				...generateSidebar(),
+				{ items: [...generateSidebar()] },
 			],
 			// '/consequences/': [
 			// 	// { text: 'Хронология', link: '/consequences/' },
@@ -97,14 +97,15 @@ export default defineConfig({
 // }
 
 function generateSidebar() {
-	return consequences_sidebar.sidebar.map((section) => ({
+	const result = consequences_sidebar.sidebar.map((section) => ({
 		text: section.text,
-		collapsible: true, // можно сворачивать
+		collapsed: false,
 		items: section.items.map((item) => ({
 			text: getArticleTitle(item.article),
-			link: `/content/consequences/${item.article}`,
+			link: `/content/consequences/${item.article.split('/')[0]}/`,
 		})),
 	}))
+	return result
 }
 
 function getArticleTitle(articlePath) {
