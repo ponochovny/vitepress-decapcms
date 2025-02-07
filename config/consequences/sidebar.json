@@ -19,6 +19,9 @@
         },
         {
           "article": "something-new/index"
+        },
+        {
+          "article": "test-article/index"
         }
       ]
     }
