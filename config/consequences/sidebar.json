@@ -1,7 +1,7 @@
 {
   "sidebar": [
     {
-      "text": "2014",
+      "text": "21 ноября 2013",
       "items": [
         {
           "article": "майдан/index"
@@ -27,9 +27,6 @@
         },
         {
           "article": "something-new/index"
-        },
-        {
-          "article": "test-article/index"
         }
       ]
     }
