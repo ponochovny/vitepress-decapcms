@@ -64,6 +64,10 @@ export default defineConfig({
 			next: 'Следующая страница',
 		},
 
+		theme: {
+			outlineTitle: 'На этой странице'
+		},
+
 		search: {
 			provider: 'local',
 		},
