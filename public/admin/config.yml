@@ -1,6 +1,3 @@
-# for local usage
-local_backend: true
-
 backend:
   name: git-gateway
   branch: main

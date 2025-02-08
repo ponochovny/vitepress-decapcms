@@ -26,15 +26,8 @@ export default defineConfig({
 
 		sidebar: {
 			'/content/consequences': [
-				// { text: 'Хронология', link: '/consequences/' },
-				// ...getconsequencesLinks(),
-				// ...consequences_sidebar.sidebar,
 				{ items: [...generateSidebar()] },
 			],
-			// '/consequences/': [
-			// 	// { text: 'Хронология', link: '/consequences/' },
-			// 	...getconsequencesLinks(),
-			// ],
 		},
 
 		socialLinks: [
@@ -88,32 +81,6 @@ export default defineConfig({
 	]
 })
 
-// function getconsequencesLinks() {
-
-// 	// return consequences_sidebar.sidebar.map((section) => ({
-// 	// 	text: section.text,
-// 	// 	collapsible: true,
-// 	// 	items: section.items.map((item) => ({
-// 	// 		text: item.text,
-// 	// 		link: `/consequences/${item.article}`,
-// 	// 	}))
-// 	// }))
-
-// 	const consequencesDir = path.resolve(__dirname, '../content/consequences')
-// 	const files = fs.readdirSync(consequencesDir)
-
-// 	return files
-// 		.filter((file) => file.endsWith('.md') && !file.includes('index'))
-// 		.map((file) => {
-// 			const filePath = path.join(consequencesDir, file)
-// 			const content = fs.readFileSync(filePath, 'utf-8')
-// 			const { data } = matter(content)
-// 			const name = data.title || file.replace('.md', '')
-// 			const link = `/consequences/${file.replace('.md', '')}`
-// 			return { text: name, link }
-// 		})
-// }
-
 function generateSidebar() {
 	const result = consequences_sidebar.sidebar.map((section) => ({
 		text: section.text,
@@ -139,5 +106,5 @@ function getArticleTitle(articlePath) {
 		return data.title || articlePath.split('/').pop()
 	}
 
-	return articlePath.split('/').pop() // Фолбэк на имя файла, если `title` нет
+	return articlePath.split('/').pop()
 }
